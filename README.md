@@ -1,9 +1,22 @@
 # AsyncBitmapLoader
-다이나믹 비트맵 로딩
+다이나믹 비트맵 로딩용 라이브러리.
+메모리 캐시를 10장 가지고 있고, 디스크 캐시는 사용하지 않는다.
+
 
 Usage
 ===============
 
+### build.gradle
+
+```
+repositories {
+    maven { url 'http://junsuk5.github.io/AsyncBitmapLoader/repository' }
+}
+
+dependencies {
+    compile 'com.suwonsmartapp:async-bitmap-loader:0.1'
+}
+```
 
 LICENSE
 ===============
