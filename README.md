@@ -18,6 +18,34 @@ dependencies {
 }
 ```
 
+### code
+
+```
+// 선언
+private AsyncBitmapLoader mAsyncBitmapLoader;
+
+...
+
+// onCreate 등에서 객체 생성
+mAsyncBitmapLoader = new AsyncBitmapLoader(context);
+
+// setBitmapLoadListener 를 구현
+mAsyncBitmapLoader.setBitmapLoadListener(new AsyncBitmapLoader.BitmapLoadListener() {
+    @Override
+    public Bitmap getBitmap(int position) {
+        // ListView 등의 position 에 표시할 Bitmap을 정의하여 리턴
+        return bitmap;
+    }
+});
+        
+...
+
+// 이미지 호출
+mAsyncBitmapLoader.loadBitmap(position, imageView);
+
+```
+
+
 LICENSE
 ===============
 
