@@ -1,6 +1,7 @@
 
 package com.suwonsmartapp.abl;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -22,8 +23,6 @@ import java.lang.ref.WeakReference;
  * 메모리 캐시를 사용
  */
 public class AsyncBitmapLoader {
-
-    private static final int MAX_CACHE_SIZE = 10;
 
     private ImageCache mImageCache;
 
@@ -54,7 +53,13 @@ public class AsyncBitmapLoader {
 
     public AsyncBitmapLoader(Context context) {
         mContext = context;
-        mImageCache = new MemoryImageCache(MAX_CACHE_SIZE);
+
+        final int memClass = ((ActivityManager)context.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
+
+        // Use 1/8th of the available memory for this memory cache.
+        final int cacheSize = 1024 * 1024 * memClass / 8;
+
+        mImageCache = new MemoryImageCache(cacheSize);
 
         mTransparentColorDrawable = new ColorDrawable(Color.TRANSPARENT);
     }

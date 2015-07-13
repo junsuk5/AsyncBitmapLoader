@@ -8,13 +8,19 @@ import android.support.v4.util.LruCache;
 import java.io.File;
 
 /**
- * Created by sol on 2015-04-07.
+ * 메모리 캐시
  */
 public class MemoryImageCache implements ImageCache {
     private LruCache<String, Bitmap> lruCache;
 
-    public MemoryImageCache(int maxCount) {
-        lruCache = new LruCache<>(maxCount);
+    public MemoryImageCache(int maxSize) {
+        lruCache = new LruCache<String, Bitmap>(maxSize) {
+            @Override
+            protected int sizeOf(String key, Bitmap value) {
+                // 캐시에 담겨진 크기는 bitmap 사이즈로
+                return value.getByteCount();
+            }
+        };
     }
 
     @Override

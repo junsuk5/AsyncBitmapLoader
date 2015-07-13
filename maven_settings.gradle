@@ -6,7 +6,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             repository url: "file://${deployTo.absolutePath}"
-            pom.version = "0.1"
+            pom.version = "0.2"
             pom.groupId = "com.suwonsmartapp"
             pom.artifactId = "async-bitmap-loader"
         }
