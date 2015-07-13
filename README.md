@@ -1,6 +1,6 @@
 # AsyncBitmapLoader
 다이나믹 비트맵 로딩용 라이브러리.
-메모리 캐시를 10장 가지고 있고, 디스크 캐시는 사용하지 않는다.
+메모리 캐시를 허용된 메모리의 1/8을 할당하고, 디스크 캐시는 사용하지 않는다.
 
 
 Usage
@@ -14,7 +14,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.suwonsmartapp:async-bitmap-loader:0.1'
+    compile 'com.suwonsmartapp:async-bitmap-loader:0.2'
 }
 ```
 
