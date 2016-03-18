@@ -5,9 +5,6 @@ import android.graphics.Bitmap;
 
 import java.io.File;
 
-/**
- * Created by sol on 2015-04-07.
- */
 public interface ImageCache {
     void addBitmap(String key, Bitmap bitmap);
 
